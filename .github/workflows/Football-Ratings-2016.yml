@@ -24,10 +24,10 @@ jobs:
       - name: Run ratings script
         run: python football_ratings_2016.py
 
-      - name: Commit and push football_ratings_2018.json
+      - name: Commit and push football_ratings_2016.json
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add football_ratings_2016.json
+          git add .
           git diff --staged --quiet || git commit -m "Update ratings $(date +'%Y-%m-%d')"
           git push
