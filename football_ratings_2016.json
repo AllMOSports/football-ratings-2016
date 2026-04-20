@@ -1,5 +1,5 @@
 {
-  "last_updated": "April 17, 2026 at 02:46 PM",
+  "last_updated": "April 20, 2026 at 09:30 PM",
   "league_average": 27.2,
   "teams": [
     {
@@ -868,21 +868,21 @@
     },
     {
       "ovr_rank": 97,
-      "school": "Lafayette (St. Joseph)",
-      "ovr_rating": 18.07,
-      "off_rating": 13.52,
-      "off_rank": 70,
-      "def_rating": 4.56,
-      "def_rank": 132
-    },
-    {
-      "ovr_rank": 98,
       "school": "Miller Career Academy with Vashon, Sumner",
       "ovr_rating": 18.07,
       "off_rating": 1.15,
       "off_rank": 146,
       "def_rating": 16.92,
       "def_rank": 54
+    },
+    {
+      "ovr_rank": 98,
+      "school": "Lafayette (St. Joseph)",
+      "ovr_rating": 18.07,
+      "off_rating": 13.52,
+      "off_rank": 70,
+      "def_rating": 4.56,
+      "def_rank": 132
     },
     {
       "ovr_rank": 99,
@@ -1363,21 +1363,21 @@
     },
     {
       "ovr_rank": 152,
-      "school": "Rolla",
-      "ovr_rating": 1.83,
-      "off_rating": 2.36,
-      "off_rank": 140,
-      "def_rating": -0.53,
-      "def_rank": 175
-    },
-    {
-      "ovr_rank": 153,
       "school": "Aurora",
       "ovr_rating": 1.83,
       "off_rating": -0.23,
       "off_rank": 155,
       "def_rating": 2.05,
       "def_rank": 151
+    },
+    {
+      "ovr_rank": 153,
+      "school": "Rolla",
+      "ovr_rating": 1.83,
+      "off_rating": 2.36,
+      "off_rank": 140,
+      "def_rating": -0.53,
+      "def_rank": 175
     },
     {
       "ovr_rank": 154,
