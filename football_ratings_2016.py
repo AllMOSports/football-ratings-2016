@@ -56,6 +56,35 @@ HEADERS = {
 }
  
 # ---------------------------------------------------------------------------
+# HTTP SESSION (connection reuse + retry on transient failures)
+# ---------------------------------------------------------------------------
+# Days that timeout right at the 20s ceiling get one retry with a short
+# backoff before we give up on them. A shared Session reuses the underlying
+# TCP connection instead of opening a fresh one per request, which by
+# itself often reduces the frequency of these near-ceiling timeouts.
+ 
+def build_session():
+    from requests.adapters import HTTPAdapter
+    try:
+        from urllib3.util.retry import Retry
+    except ImportError:
+        from requests.packages.urllib3.util.retry import Retry
+ 
+    session = requests.Session()
+    retry = Retry(
+        total=1,                      # one retry after the first failure
+        connect=1,
+        read=1,
+        backoff_factor=1.5,           # short pause before the retry
+        status_forcelist=[500, 502, 503, 504],
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(max_retries=retry, pool_connections=1, pool_maxsize=1)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+ 
+# ---------------------------------------------------------------------------
 # CLASSIFICATIONS
 # ---------------------------------------------------------------------------
  
@@ -196,14 +225,21 @@ def is_forfeit(c1, c2):
     return "forfeit" in (c1.get_text() + c2.get_text()).lower()
  
  
-def scrape_date(target_date, id_to_classname, known_teams):
+def scrape_date(target_date, id_to_classname, known_teams, session):
     url = BASE_URL.format(target_date.strftime("%m%d%Y"))
     try:
-        resp = requests.get(url, timeout=20, headers=HEADERS)
+        # (connect_timeout, read_timeout) -- 10s to connect, 25s to read.
+        # 25s (vs. the old flat 20s) gives borderline-slow responses (the
+        # ~20.6-20.9s ones you saw) a real chance to finish instead of
+        # being cut off right before they would have succeeded.
+        resp = session.get(url, timeout=(10, 25), headers=HEADERS)
         resp.raise_for_status()
+    except requests.exceptions.Timeout as e:
+        print(f"  TIMEOUT {target_date}: {e}")
+        return [], "timeout"
     except requests.RequestException as e:
         print(f"  Failed {target_date}: {e}")
-        return []
+        return [], "error"
  
     soup  = BeautifulSoup(resp.text, "html.parser")
     games = []
@@ -241,23 +277,28 @@ def scrape_date(target_date, id_to_classname, known_teams):
             name2, s2
         ))
  
-    return games
+    return games, None
  
  
 def scrape_full_season(id_to_classname, known_teams):
-    all_games   = []
-    current     = SEASON_START
-    scrape_t0   = time.perf_counter()
-    slow_days   = []   # (date, seconds) for anything taking > 3s
+    all_games     = []
+    current       = SEASON_START
+    scrape_t0     = time.perf_counter()
+    slow_days     = []   # (date, seconds) for anything taking > 3s
+    failed_days   = []   # (date, reason) for anything that never succeeded
+    session       = build_session()
+ 
     while current <= min(SEASON_END, date.today()):
         day_t0 = time.perf_counter()
         print(f"  Scraping {current}...", end=" ", flush=True)
-        day_games = scrape_date(current, id_to_classname, known_teams)
+        day_games, fail_reason = scrape_date(current, id_to_classname, known_teams, session)
         all_games.extend(day_games)
         day_elapsed = time.perf_counter() - day_t0
         print(f"{len(day_games)} games ({day_elapsed:.1f}s)")
         if day_elapsed > 3.0:
             slow_days.append((current, day_elapsed))
+        if fail_reason is not None:
+            failed_days.append((current, fail_reason))
         current += timedelta(days=1)
         time.sleep(0.5)
  
@@ -268,6 +309,16 @@ def scrape_full_season(id_to_classname, known_teams):
         print(f"  [TIMING] {len(slow_days)} slow day(s) (>3s each):")
         for d, secs in slow_days:
             print(f"    {d}: {secs:.1f}s")
+    if failed_days:
+        print(f"\n  *** {len(failed_days)} date(s) NEVER returned data, "
+              f"even after retry -- these dates may be missing real "
+              f"games. Check them manually against MSHSAA and add via "
+              f"MANUAL_GAMES if needed: ***")
+        for d, reason in failed_days:
+            print(f"    {d} ({reason})")
+    else:
+        print("  All dates returned successfully -- no known data gaps "
+              "from scraping failures.")
     return all_games
  
  
