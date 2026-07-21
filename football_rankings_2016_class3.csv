@@ -1,63 +1,63 @@
 School,OFF Rating,DEF Rating,OVR Rating,OFF Rank,DEF Rank,OVR Rank
-Maryville,29.56,27.02,56.58,1,1,1
-Center,25.26,22.95,48.21,2,2,2
-Richmond,21.3,22.0,43.3,3,3,3
-Monett,19.33,20.32,39.65,4,4,4
-Chillicothe,13.39,18.15,31.54,9,5,5
-Blair Oaks,13.97,14.81,28.78,8,9,6
-McCluer South-Berkeley,12.03,15.63,27.66,12,7,7
-Cassville,14.48,12.62,27.1,6,12,8
-Odessa,9.08,16.01,25.09,14,6,9
-Oak Grove,8.64,13.78,22.42,16,11,10
-St. Pius X (Kansas City),4.86,14.92,19.78,22,8,11
-Mt. Vernon,13.99,5.17,19.16,7,23,12
-Clinton,12.83,5.73,18.56,10,20,13
-Owensville,17.21,0.19,17.4,5,33,14
-Miller Career Academy,2.49,14.75,17.24,25,10,15
-Mexico,5.08,11.03,16.12,20,13,16
-Reeds Spring,6.61,8.93,15.54,17,16,17
-Pleasant Hill,5.12,10.21,15.33,19,15,18
-St. Charles West,1.34,11.02,12.37,26,14,19
-Central (Park Hills),5.02,6.34,11.36,21,19,20
-Orchard Farm,2.9,8.24,11.14,23,17,21
-Southern Boone,9.32,-1.08,8.24,13,35,22
-John Burroughs,2.6,5.58,8.18,24,21,23
-Osage,6.44,1.56,7.99,18,30,24
-Lutheran St. Charles,12.74,-6.71,6.03,11,47,25
-Springfield Catholic,-1.03,5.49,4.45,29,22,26
-Lutheran South,8.93,-5.55,3.38,15,44,27
-Eldon,-1.62,4.47,2.85,33,24,28
-Aurora,-1.24,3.72,2.47,30,25,29
-Vashon,-2.06,2.24,0.18,34,28,30
-Sullivan,-7.92,8.08,0.16,45,18,31
-Seneca,-1.43,1.3,-0.13,32,31,32
-Ste. Genevieve,-1.32,0.27,-1.05,31,32,33
-Hogan Prep Academy Charter,1.31,-3.14,-1.83,27,40,34
-Potosi,-6.61,2.52,-4.09,43,26,35
-St. James,-6.18,2.09,-4.1,42,29,36
-Kennett,-0.82,-4.52,-5.34,28,43,37
-Boonville,-5.56,-1.24,-6.79,40,36,38
-Fulton,-3.23,-4.21,-7.44,35,41,39
-Jennings,-4.96,-2.77,-7.73,39,39,40
-Pembroke Hill,-10.69,2.46,-8.23,50,27,41
-East Newton,-4.13,-4.4,-8.52,38,42,42
-Soldan International Studies,-3.83,-6.6,-10.42,37,46,43
-Veritas Christian Academy,-3.45,-8.19,-11.64,36,50,44
-Normandy Collaborative,-9.56,-2.65,-12.21,49,37,45
-Duchesne,-12.73,-1.0,-13.73,56,34,46
-Salem,-12.27,-2.7,-14.97,55,38,47
-Hollister,-8.1,-8.07,-16.17,47,49,48
-Logan-Rogersville,-7.48,-9.04,-16.53,44,52,49
-Cameron,-11.2,-7.13,-18.33,52,48,50
-Confluence Prep Academy Charter,-14.78,-5.99,-20.77,57,45,51
-Lincoln College Prep,-8.02,-13.84,-21.86,46,54,52
-Central (Kansas City),-5.64,-19.15,-24.79,41,58,53
-Fredericktown,-11.43,-15.01,-26.45,54,55,54
-Buffalo,-10.93,-15.87,-26.79,51,56,55
-Dexter,-21.76,-8.24,-30.0,58,51,56
-Southeast,-25.18,-10.96,-36.14,59,53,57
-Central (New Madrid County),-11.32,-32.93,-44.25,53,61,58
-Winfield,-9.01,-35.32,-44.34,48,62,59
-Roosevelt,-28.43,-32.51,-60.94,60,60,60
-Lift for Life Academy Charter,-47.64,-16.37,-64.01,62,57,61
-Wright City,-34.27,-31.62,-65.89,61,59,62
+Maryville,28.42,24.31,52.74,1,1,1
+Center,22.52,20.18,42.7,2,3,2
+Richmond,17.86,20.41,38.26,4,2,3
+Monett,18.26,19.19,37.45,3,4,4
+Chillicothe,13.0,15.94,28.94,8,5,5
+McCluer South-Berkeley,11.3,14.8,26.1,10,6,6
+Blair Oaks,14.5,10.98,25.48,6,12,7
+Cassville,12.32,12.19,24.51,9,10,8
+Odessa,6.61,14.24,20.86,15,7,9
+Mt. Vernon,13.75,5.18,18.93,7,21,10
+St. Pius X (Kansas City),4.35,14.0,18.35,21,9,11
+Oak Grove,6.76,11.53,18.29,14,11,12
+Mexico,5.21,10.92,16.13,20,13,13
+Owensville,16.52,-0.66,15.86,5,33,14
+Clinton,11.08,4.23,15.31,11,24,15
+Miller Career Academy,1.02,14.19,15.21,27,8,16
+Reeds Spring,6.98,7.64,14.62,13,18,17
+Pleasant Hill,3.54,8.27,11.81,22,15,18
+Central (Park Hills),5.74,5.43,11.17,19,20,19
+St. Charles West,1.94,9.0,10.94,24,14,20
+Orchard Farm,1.76,7.76,9.52,25,16,21
+Osage,6.43,2.91,9.34,17,27,22
+Southern Boone,6.56,-0.11,6.45,16,32,23
+John Burroughs,2.37,3.99,6.36,23,25,24
+Springfield Catholic,-1.44,6.14,4.7,33,19,25
+Lutheran St. Charles,10.18,-6.43,3.74,12,48,26
+Eldon,-0.98,4.71,3.74,29,22,27
+Aurora,-1.95,3.76,1.81,34,26,28
+Hogan Prep Academy Charter,1.64,-0.86,0.78,26,34,29
+Seneca,-1.24,1.13,-0.11,31,29,30
+Lutheran South,6.19,-6.33,-0.14,18,46,31
+Sullivan,-8.16,7.72,-0.44,48,17,32
+Ste. Genevieve,-1.35,0.44,-0.91,32,31,33
+Potosi,-6.75,2.58,-4.18,45,28,34
+Vashon,-1.18,-3.03,-4.22,30,41,35
+Kennett,-0.5,-3.8,-4.3,28,42,36
+St. James,-5.82,1.05,-4.77,41,30,37
+Pembroke Hill,-9.36,4.41,-4.95,51,23,38
+Fulton,-2.56,-2.72,-5.28,36,40,39
+East Newton,-2.96,-4.04,-7.0,37,43,40
+Jennings,-6.09,-1.37,-7.46,42,36,41
+Boonville,-5.48,-2.62,-8.11,40,38,42
+Salem,-9.37,-2.19,-11.56,52,37,43
+Normandy Collaborative,-9.83,-2.7,-12.53,53,39,44
+Soldan International Studies,-6.82,-5.75,-12.57,46,45,45
+Logan-Rogersville,-6.68,-6.34,-13.02,44,47,46
+Duchesne,-12.64,-1.31,-13.95,57,35,47
+Veritas Christian Academy,-4.21,-9.99,-14.2,38,52,48
+Hollister,-7.46,-6.91,-14.37,47,50,49
+Confluence Prep Academy Charter,-11.56,-4.13,-15.69,56,44,50
+Lincoln College Prep,-4.86,-10.88,-15.74,39,53,51
+Central (Kansas City),-2.51,-15.62,-18.13,35,57,52
+Cameron,-10.12,-12.4,-22.51,54,54,53
+Buffalo,-9.09,-15.43,-24.52,50,56,54
+Dexter,-18.24,-6.73,-24.98,58,49,55
+Fredericktown,-10.89,-14.22,-25.11,55,55,56
+Southeast,-21.78,-7.31,-29.1,59,51,57
+Winfield,-6.22,-27.99,-34.2,43,60,58
+Central (New Madrid County),-8.71,-30.51,-39.21,49,62,59
+Wright City,-25.85,-23.18,-49.03,60,59,60
+Lift for Life Academy Charter,-31.06,-18.96,-50.02,62,58,61
+Roosevelt,-26.9,-30.3,-57.21,61,61,62
