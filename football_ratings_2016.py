@@ -245,15 +245,29 @@ def scrape_date(target_date, id_to_classname, known_teams):
  
  
 def scrape_full_season(id_to_classname, known_teams):
-    all_games = []
-    current   = SEASON_START
+    all_games   = []
+    current     = SEASON_START
+    scrape_t0   = time.perf_counter()
+    slow_days   = []   # (date, seconds) for anything taking > 3s
     while current <= min(SEASON_END, date.today()):
+        day_t0 = time.perf_counter()
         print(f"  Scraping {current}...", end=" ", flush=True)
         day_games = scrape_date(current, id_to_classname, known_teams)
         all_games.extend(day_games)
-        print(f"{len(day_games)} games")
+        day_elapsed = time.perf_counter() - day_t0
+        print(f"{len(day_games)} games ({day_elapsed:.1f}s)")
+        if day_elapsed > 3.0:
+            slow_days.append((current, day_elapsed))
         current += timedelta(days=1)
         time.sleep(0.5)
+ 
+    scrape_elapsed = time.perf_counter() - scrape_t0
+    print(f"\n  [TIMING] Scraping took {scrape_elapsed:.1f}s total "
+          f"for {len(all_games)} games.")
+    if slow_days:
+        print(f"  [TIMING] {len(slow_days)} slow day(s) (>3s each):")
+        for d, secs in slow_days:
+            print(f"    {d}: {secs:.1f}s")
     return all_games
  
  
@@ -421,8 +435,11 @@ def calculate_ratings(all_games, iterations=ITERATIONS):
     print(f"\n  Running rating fit ({iterations} iterations, soft-weighted "
           f"by competitiveness [scale={COMPETITIVE_THRESHOLD}], "
           f"shrinkage K={REGULARIZATION_K}, MOV cap={MOV_CAP})...")
+    print(f"  [TIMING] {len(teams)} teams, {len(games)} games going into the fit.")
+    engine_t0 = time.perf_counter()
     run_iterations(games, teams, off_rating, def_rating, league_avg,
                    iterations=iterations, phase_label="Fit")
+    print(f"  [TIMING] Rating fit took {time.perf_counter() - engine_t0:.1f}s.")
  
     ovr_rating = {t: round(off_rating[t] + def_rating[t], 2) for t in teams}
     return off_rating, def_rating, ovr_rating, league_avg
